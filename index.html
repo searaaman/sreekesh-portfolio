@@ -54,10 +54,15 @@ header nav a:hover{color:var(--ink);text-decoration:underline}
 @media(min-width:821px){.intro .photo{position:sticky;top:24px}}
 .intro h1{font-size:clamp(36px,4.4vw,52px)}
 .intro .roles{font-size:16px;color:var(--soft);margin-bottom:22px;line-height:1.6}
-.expertise-title{font:700 17px 'Atkinson Hyperlegible',sans-serif;margin:26px 0 10px}
-.expertise{padding-left:20px;margin-bottom:18px}
-.expertise li{font-size:17px;line-height:1.65}
-.expertise li+li{margin-top:10px}
+.expertise{padding:72px 0;background:#f6f5f2;border-top:1px solid #e8e6e1}
+.expertise h2{font:400 34px/1.2 'Spectral',serif;margin-bottom:28px}
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.exp-grid article{background:#fff;border:1px solid #e6e3dd;border-top:4px solid var(--navy);border-radius:10px;padding:24px 26px;transition:transform .15s,box-shadow .15s;animation:rise .5s ease-out both;animation-delay:calc(var(--i,0)*80ms)}
+.exp-grid article:hover{transform:translateY(-3px);box-shadow:0 10px 24px #0000001a}
+.exp-grid h3{font:700 19px/1.35 'Atkinson Hyperlegible',sans-serif;margin-bottom:10px}
+.exp-grid p{font-size:16px;line-height:1.65;color:#3d3d3d}
+.exp-grid mark{color:inherit;background:#ffe27acc;padding:0 .15em;border-radius:.3em}
+@media(max-width:820px){.expertise{padding:56px 0}.exp-grid{grid-template-columns:1fr}}
 .contents{list-style:none;padding:0;margin-top:40px;border-top:1px solid #ddd}
 .contents li{border-bottom:1px solid #ddd}
 .contents a{display:flex;justify-content:space-between;gap:20px;padding:14px 0;text-decoration:none;font-size:20px}
@@ -136,7 +141,7 @@ header nav a:hover{color:var(--ink);text-decoration:underline}
 @media(max-width:520px){.matches{grid-template-columns:1fr}}
 
 /* Fields: pick one, its section shows below */
-.fields{padding:72px 0 40px;border-top:1px solid #e4e4e4}
+.fields{padding:72px 0 40px}
 .fields h2{font:400 34px/1.2 'Spectral',serif;margin-bottom:24px}
 .field-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .field-tabs button{padding:0;border:1px solid #e2e0db;border-radius:10px;overflow:hidden;background:#fff;cursor:pointer;text-align:left;box-shadow:0 1px 2px #0000000d;transition:transform .15s,box-shadow .15s}
@@ -235,17 +240,20 @@ footer a:hover{transform:translateY(-2px)}
     <h1>Hi, I'm Sreekesh Narayanan.</h1>
     <p class="roles">Technical Content Writer · Product Content Analyst · UX Writer &amp; Content Strategist · Content Writer</p>
     <p>With over <mark>five years of experience</mark> in technical communication, UX writing, and SEO content strategy, I translate complex software architectures into intuitive user experiences. Holding a B.Sc. in Computer Science and a PG Diploma in Journalism and Communication from Kerala Media Academy, I bridge the gap between software engineering teams and end users.</p>
-    <h2 class="expertise-title">Core expertise and track record</h2>
-    <ul class="expertise">
-      <li><strong>SaaS Documentation &amp; Information Architecture:</strong> Authored end-to-end software manuals, developer reference guides, Standard Operating Procedures (SOPs), and system deployment documents for enterprise supply chain platforms at <mark>Geodis India</mark> and Distinct Infotech Solutions.</li>
-      <li><strong>UX Writing &amp; Content Design:</strong> Crafted clear interface microcopy, multi-step user onboarding flows, and conversion-focused landing pages for global SaaS, e-learning, and travel platforms including Flyscanner.</li>
-      <li><strong>SEO Strategy &amp; High-Volume EdTech Content:</strong> Produced and optimized <mark>over 1,000 search-driven articles</mark>, technical study guides, and career resources at Entri App, leveraging Google Analytics data to drive organic traffic and user engagement.</li>
-      <li><strong>Tools &amp; Technical Stack:</strong> Experienced with Git, Markdown, GitBook, WordPress, Google Analytics, HTML, CSS, and localization-ready documentation workflows.</li>
-    </ul>
     <p>Beyond technical and product documentation, I write long-form cultural essays on <mark>Indian philosophy and wellness</mark> for Hidden Mantra, and manage two independent sports journalism publications, Lines Man Thoughts and Freehit Shots, under Hooman Inks.</p>
     <div class="btns"><a class="btn" href="mailto:sreekeshon@gmail.com">Email me</a><a class="btn wa" href="https://wa.me/917356676750" target="_blank" rel="noopener">Chat on WhatsApp</a></div>
   </div>
 </div>
+
+<section class="expertise" id="expertise"><div class="wrap">
+  <h2>Core expertise and track record</h2>
+  <div class="exp-grid">
+    <article><h3>SaaS Documentation &amp; Information Architecture</h3><p>Authored end-to-end software manuals, developer reference guides, Standard Operating Procedures (SOPs), and system deployment documents for enterprise supply chain platforms at <mark>Geodis India</mark> and Distinct Infotech Solutions.</p></article>
+    <article><h3>UX Writing &amp; Content Design</h3><p>Crafted clear interface microcopy, multi-step user onboarding flows, and conversion-focused landing pages for global SaaS, e-learning, and travel platforms including Flyscanner.</p></article>
+    <article><h3>SEO Strategy &amp; High-Volume EdTech Content</h3><p>Produced and optimized <mark>over 1,000 search-driven articles</mark>, technical study guides, and career resources at Entri App, leveraging Google Analytics data to drive organic traffic and user engagement.</p></article>
+    <article><h3>Tools &amp; Technical Stack</h3><p>Experienced with Git, Markdown, GitBook, WordPress, Google Analytics, HTML, CSS, and localization-ready documentation workflows.</p></article>
+  </div>
+</div></section>
 
 <section class="fields" id="work"><div class="wrap">
   <h2>What I write</h2>
@@ -425,7 +433,7 @@ footer a:hover{transform:translateY(-2px)}
 const tabs=document.querySelectorAll('.field-tabs button');
 function show(id){tabs.forEach(b=>{const on=b.dataset.for===id;b.setAttribute('aria-pressed',on);document.getElementById(b.dataset.for).hidden=!on})}
 tabs.forEach(b=>b.onclick=()=>{const id=b.getAttribute('aria-pressed')==='true'?null:b.dataset.for;show(id);if(id)document.getElementById(id).scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})});
-document.querySelectorAll('.intro>div,.field-tabs,.matches,.devo-grid,.page,.bloglist,.docs aside+div').forEach(g=>[...g.children].forEach((c,i)=>c.style.setProperty('--i',i)));
+document.querySelectorAll('.intro>div,.exp-grid,.field-tabs,.matches,.devo-grid,.page,.bloglist,.docs aside+div').forEach(g=>[...g.children].forEach((c,i)=>c.style.setProperty('--i',i)));
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.fields h2,.work .wrap>*,.contact .wrap').forEach(el=>{el.classList.add('reveal');io.observe(el)});
 document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',()=>{const id=a.hash.slice(1);if([...tabs].some(b=>b.dataset.for===id))show(id);a.closest('details').open=false}));
