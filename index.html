@@ -180,6 +180,10 @@ footer svg{width:22px;height:22px}
  .note .scrib{position:static;display:block;width:auto;text-align:left;transform:none;line-height:40px}
 }
 
+/* Highlighter marks in the intro */
+@keyframes swipe{from{background-size:0 70%}to{background-size:100% 70%}}
+.intro mark{color:inherit;background:linear-gradient(104deg,#ffe27a00 0,#ffe27acc 2%,#ffd84d99 50%,#ffe27acc 97%,#ffe27a00 100%) no-repeat 0 60%/100% 70%;padding:0 .15em;margin:0 -.05em;border-radius:.3em .5em;box-decoration-break:clone;-webkit-box-decoration-break:clone;animation:swipe .8s ease-out both;animation-delay:calc(var(--i,0)*90ms + 700ms)}
+
 /* Motion */
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 .intro .photo,.intro>div>*{animation:rise .7s cubic-bezier(.2,.7,.3,1) both;animation-delay:calc(var(--i,0)*90ms + 100ms)}
@@ -210,9 +214,9 @@ footer a:hover{transform:translateY(-2px)}
   <div class="photo"><img src="photo.jpg" alt="Sreekesh Narayanan standing by a laterite wall with paddy fields and coconut palms behind him" width="472" height="582"></div>
   <div>
     <h1>Hi, I'm Sreekesh.</h1>
-    <p>I'm a technical content writer from Thrissur, Kerala. I studied computer science, then did a PG Diploma in Journalism at Kerala Media Academy, and I've been writing for a living since 2020.</p>
-    <p>I work as a Product Content Analyst at Geodis India, writing manuals, reference guides and onboarding copy for their supply chain software. Before Geodis, I spent three years at Entri and wrote more than 1,000 articles for students preparing for exams.</p>
-    <p>Outside of work, I write about Indian festivals and spirituality for Hidden Mantra. I also run two blogs of my own, one on football and one on cricket.</p>
+    <p>I'm a <mark>technical content writer</mark> from Thrissur, Kerala. I studied computer science, then did a PG Diploma in Journalism at Kerala Media Academy, and I've been writing for a living since 2020.</p>
+    <p>I work as a <mark>Product Content Analyst at Geodis India</mark>, writing manuals, reference guides and onboarding copy for their supply chain software. Before Geodis, I spent three years at Entri and wrote <mark>more than 1,000 articles</mark> for students preparing for exams.</p>
+    <p>Outside of work, I write about <mark>Indian festivals and spirituality</mark> for Hidden Mantra. I also run <mark>two blogs of my own</mark>, one on football and one on cricket.</p>
     <p>If you need documentation, blog content or anything in between, email me or message me on WhatsApp.</p>
     <div class="btns"><a class="btn" href="mailto:sreekeshon@gmail.com">Email me</a><a class="btn wa" href="https://wa.me/917356676750" target="_blank" rel="noopener">Chat on WhatsApp</a></div>
   </div>
