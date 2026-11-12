@@ -409,7 +409,7 @@ footer a:hover{transform:translateY(-2px)}
 <script>
 const tabs=document.querySelectorAll('.field-tabs button');
 function show(id){tabs.forEach(b=>{const on=b.dataset.for===id;b.setAttribute('aria-pressed',on);document.getElementById(b.dataset.for).hidden=!on})}
-tabs.forEach(b=>b.onclick=()=>show(b.getAttribute('aria-pressed')==='true'?null:b.dataset.for));
+tabs.forEach(b=>b.onclick=()=>{const id=b.getAttribute('aria-pressed')==='true'?null:b.dataset.for;show(id);if(id)document.getElementById(id).scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})});
 document.querySelectorAll('.intro>div,.field-tabs,.matches,.devo-grid,.page,.bloglist,.docs aside+div').forEach(g=>[...g.children].forEach((c,i)=>c.style.setProperty('--i',i)));
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.fields h2,.work .wrap>*,.contact .wrap').forEach(el=>{el.classList.add('reveal');io.observe(el)});
